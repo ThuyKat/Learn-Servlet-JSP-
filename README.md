@@ -66,13 +66,13 @@ Right click on the server > Start
 
 * Now update the method = "post" inside form tag
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 
 * And create a doPost method in java file, it looks exactly the same as doGet but the method name!
 
 * Test again: we see that everything else is the same, but the url no longer shows the parameter of username anymore
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 
 
