@@ -101,6 +101,19 @@ Right click on the server > Start
 
 ![alt text](images/image-18.png)
 
+4. In browser, we can select multiple values. In java file, we can pass those multiple values to an array and use for loop to print out each of the value in browser. 
+
+# Request, Session and Context
+1. request and response objects are created per access
+2. The servlet object ( the servlet class' instance) is created only once
+3. HTTP-stateless protocol - user and data are not rememberred
+4. In order to remember user'info, we use session object provided by Tomcat to save data value during execution
+"""HTTPSession session - request.getSession()
+session.setAttribute("savedUserName",userName);"""
+
+As we can see, even when we erase the ?userName=Thuy , the session still retain the data
+![alt text](image-19.png)
+
 
 
 
