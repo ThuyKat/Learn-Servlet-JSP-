@@ -34,7 +34,7 @@ Right click on the server > Start
 3. Next > select no constructor > select methods doGet only or other method that HttpServlet has as default methods
 
 ![alt text](image-3.png)
-4. response.setContentType("text/html") > response.getWriter().println(""<h3> Hello Thuy </h3>"") > Right click on SimpleServlet.java > run on server 
+4. response.setContentType("text/html") > response.getWriter().println("< h3 > Hello Thuy < /h3>") > Right click on SimpleServlet.java > run on server 
 
 ![alt text](image-4.png)
 
