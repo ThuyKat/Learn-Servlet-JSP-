@@ -109,8 +109,8 @@ Right click on the server > Start
 3. HTTP-stateless protocol - user and data are not rememberred
 4. In order to remember user'info, we use session object provided by Tomcat to save data value during execution
 
-HTTPSession session - request.getSession()
-session.setAttribute("savedUserName",userName);
+* HTTPSession session - request.getSession()
+* session.setAttribute("savedUserName",userName);
 
 As we can see, even when we erase the ?userName=Thuy , the session still retain the data
 ![alt text](images/image-19.png)
