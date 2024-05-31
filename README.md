@@ -31,4 +31,11 @@ Right click on the server > Start
 1. Tomcat is a container, servlet is a class. So Servlet is run on server (VM) that the Tomcat is deployed. It is pretty similar to how you run main method on Java IDE, but in this case it run on different server where Tomcat is deployed. Servlet does not have main method but it has default method that can be executed
 2. On ServletSimpleProject> New>Servlet> enter Java pakage + Class name. Notice the superclass of this servlet class we are creating should always be javax.servlet.http.HttpServlet
 ![alt text](image-2.png)
+3. Next > select no constructor > select methods doGet only or other method that HttpServlet has as default methods
 
+![alt text](image-3.png)
+4. response.setContentType("text/html") > response.getWriter().println("<h3> Hello Thuy </h3>") > Right click on SimpleServlet.java > run on server 
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
