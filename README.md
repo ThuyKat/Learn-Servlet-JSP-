@@ -74,7 +74,19 @@ Right click on the server > Start
 
 ![alt text](images/image-13.png)
 
+## Passing more parameter
 
+1. HTML file: we add extra variable which is name apart from username.
+
+![alt text](images/image-14.png)
+
+2. Notice that it must match the variable name in java file 
+
+![alt text](images/image-15.png)
+
+3. In browser: 
+
+![alt text](images/image-16.png)
 
 
 
