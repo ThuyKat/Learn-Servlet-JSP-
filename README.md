@@ -112,7 +112,7 @@ Right click on the server > Start
 session.setAttribute("savedUserName",userName);"""
 
 As we can see, even when we erase the ?userName=Thuy , the session still retain the data
-![alt text](image-19.png)
+![alt text](images/image-19.png)
 
 
 
