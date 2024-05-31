@@ -12,3 +12,6 @@
 * MIME mappings- 
 * server launch config - config the VM arguments, classpath, etc.
 * server options- enable/disable features like security, auto reload of modules by default, etc.
+## Start the server
+![alt text](image.png)
+Right click on the server > Start
