@@ -88,6 +88,20 @@ Right click on the server > Start
 
 ![alt text](images/image-16.png)
 
+## Passing parameter for radio type
+1. HTML file:
+
+![alt text](images/image.png)
+
+2. java file:
+
+![alt text](images/image-17.png)
+
+3. Browser:
+
+![alt text](images/image-18.png)
+
+
 
 
 
