@@ -27,7 +27,7 @@ Right click on the server > Start
 6. Delete all and leave only index.html as welcome file in web.xml
 7. On SimpleServletProject right click> Run on server > select the configured project > Finish
 ![alt text](image-1.png)
-## Create a servlet
+## Create a servlet : from servlet class
 1. Tomcat is a container, servlet is a class. So Servlet is run on server (VM) that the Tomcat is deployed. It is pretty similar to how you run main method on Java IDE, but in this case it run on different server where Tomcat is deployed. Servlet does not have main method but it has default method that can be executed
 2. On ServletSimpleProject> New>Servlet> enter Java pakage + Class name. Notice the superclass of this servlet class we are creating should always be javax.servlet.http.HttpServlet
 ![alt text](image-2.png)
@@ -39,3 +39,32 @@ Right click on the server > Start
 ![alt text](image-4.png)
 
 ![alt text](image-5.png)
+## create a servlet: from normal class then config later in web.xml
+1. Create a normal class, howerver it should extend from HttpServlet as its super class
+2. In web.xml, create a new servlet tag, declare servlet-name and servlet-class 
+3. In web.xml, create a new servlet-mapping tag, declare servlet-name and url-pattern
+## POST method 
+1. in doGet method, we observe the parameter request of HttpServletRequest type. In browser, lets say we pass a parameter such as ?userName=Thuy, the browser stays the same because currently all values we pass to the parameter request, we print out the same message
+
+![alt text](image-6.png)
+
+2. Now in order to pass ?userName from request variable to response variable, we call .getParameter() method of request and pass it to a new variable so that we can use it in response
+
+![alt text](image-8.png)
+
+3. Another option to do the above task is using POST method: First, we need a html form to submit 
+
+![alt text](image-7.png)
+
+*Test the html file on browser:
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+
+
+
+
