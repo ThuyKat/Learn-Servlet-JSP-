@@ -115,6 +115,20 @@ Right click on the server > Start
 As we can see, even when we erase the ?userName=Thuy , the session still retain the data
 ![alt text](images/image-19.png)
 
+5. HTTPSession can be applied for Login screens, shopping carts...
+6. However, when we move to different browser, the session is changed and unable to use anymore. 
+To use across the entire application, share across servlets and users, we use Context object. 
+ServletContext context = request.getServletContext();
+context.setAttribute("saveUserName",userName)
+
+There are two ways to create Context object.
+7. Before a method, lets say doGet, there are methods which run before the doGet run: init() and service(). This are methods inherited from HttpServlet class
+
+![alt text](images/image-20.png)
+
+![alt text](images/image-21.png)
+
+
 
 
 
