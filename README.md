@@ -122,6 +122,7 @@ ServletContext context = request.getServletContext();
 context.setAttribute("saveUserName",userName)
 
 There are two ways to create Context object.
+
 7. Before a method, lets say doGet, there are methods which run before the doGet run: init() and service(). This are methods inherited from HttpServlet class
 
 ![alt text](images/image-20.png)
