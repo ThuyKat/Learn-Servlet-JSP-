@@ -130,9 +130,19 @@ There are two ways to create Context object.
 
 * Option 1: write the parameter inside @WebServlet annotation and get its value:
 this. getServletConfig().getInitParameter("parameter_name")
+![alt text](images/image-23.png)
 * Option 2: Define the parameter inside web.xml
 
 ![alt text](images/image-22.png)
+
+## JSP
+1. Writing method <%! java_method %> ( definition tag )and writing variables and simple fomular with script tag <% variable/fomular %>. 
+2. How to write method within script tag : we write separate script-tag for each { and } and we can include html code in between
+--> All code inside the script tag <% %> is converted into doGet() method by Servlet. That's why we cannot place a method inside the tag because it will be placed inside doGet() method. Looking insde org.apache.jsp folder we can see another java file is generated under the same name as our jsp file in project folder
+--> HTML in the java file is printed to the screen internally as below: 
+![alt text](images/image-24.png)
+
+
 
 
 
