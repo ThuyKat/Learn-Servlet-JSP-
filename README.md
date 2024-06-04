@@ -198,6 +198,9 @@ Step 2: in jsp file we have a script tag
 
 ![alt text](images/image-27.png)
 
+10. ServletConfig vs ServletConfig: ServletConfig is something Servlet passign to us on the creation of the servlet object. It checks the parameter on the web server, parameter we have set there, bundles them into an object called ServletConfig and passes to us in our methods. ServletContext is an application context( scope object- like request and session) applicable across the the application ( like request is applicaiton for particular request and session is available for a user session). ServletContext is available across the application
+
+## MVC patterns
 
 
 
