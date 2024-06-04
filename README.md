@@ -173,6 +173,32 @@ pageContext.setAttribute("applicationUserName",userName,pageContext.APPLICATION_
 
 7. pageContext.findAttribute("name") : this will find the variable name in different scope and make it a pageContext.
 
+8. get the innit parameter in jsp
+Step 1: Define the servlet in web.xml
+
+ <servlet>
+    <servlet-name>InitJSP</servlet-name>
+    <!--  not specifying servlet class because we are going to do it in jsp -->
+    <jsp-file>/initpage.jsp</jsp-file>
+    <!-- this will map the servlet-name with the generated servlet in jsp file -->
+    <init-param>
+    <param-name>defaultUser</param-name>
+    <param-value>Default User Name</param-value>
+    </init-param>
+  </servlet>
+<servlet-mapping>
+    <servlet-name>InitJSP</servlet-name>
+    <url-pattern>/initpage.jsp</url-pattern>
+</servlet-mapping>
+
+Step 2: in jsp file we have a script tag
+<%=getServletConfig().getInitParameter("defaultUser")%>
+
+9. Override the jspInit() method in jsp using definition tag
+
+![alt text](images/image-27.png)
+
+
 
 
 
