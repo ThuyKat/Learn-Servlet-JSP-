@@ -13,9 +13,8 @@
 * server launch config - config the VM arguments, classpath, etc.
 * server options- enable/disable features like security, auto reload of modules by default, etc.
 ## Start the server
-![alt text](images/image.png)
 Right click on the server > Start
-## Some issues need to be noted
+-->  Some issues need to be noted
 1. If testing localhost:8081 ( or any 80 port) it shows 404 error > Right click on Server> Properties> Switch Location
 2. Open the Server UI and check if the correct Server Locations is selected ( the second one - user Tomcat installation)
 ## Create simple servlet application
@@ -128,6 +127,12 @@ There are two ways to create Context object.
 ![alt text](images/image-20.png)
 
 ![alt text](images/image-21.png)
+
+* Option 1: write the parameter inside @WebServlet annotation and get its value:
+this. getServletConfig().getInitParameter("parameter_name")
+* Option 2: Define the parameter inside web.xml
+
+![alt text](images/image-22.png)
 
 
 
