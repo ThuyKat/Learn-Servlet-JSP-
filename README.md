@@ -145,6 +145,11 @@ this. getServletConfig().getInitParameter("parameter_name")
 --> HTML in the java file is printed to the screen internally as below: 
 ![alt text](images/image-24.png)
 
+3. How to write the library method, for example new Date() from java.util.Date : Inside the first script tag at the start of jsp file, insert " import= library_name"
+
+![alt text](images/image-26.png)
+
+
 
 
 
