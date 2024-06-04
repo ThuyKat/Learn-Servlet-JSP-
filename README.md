@@ -135,20 +135,43 @@ this. getServletConfig().getInitParameter("parameter_name")
 
 ![alt text](images/image-22.png)
 
+# Application 
+# pageContext
+
 ## JSP
 1. Writing method <%! java_method %> ( definition tag )and writing variables and simple fomular with script tag <% variable/fomular %>. 
 2. How to write method within script tag : we write separate script-tag for each { and } and we can include html code in between
 
---> All code inside the script tag <% %> is converted into doGet() method by Servlet. That's why we cannot place a method inside the tag because it will be placed inside doGet() method. Looking insde org.apache.jsp folder we can see another java file is generated under the same name as our jsp file in project folder
+--> All code inside the script tag <% %> is converted into doGet()/doPost() method by Servlet. That's why we cannot place a method inside the tag because it will be placed inside doGet() method. Looking insde org.apache.jsp folder we can see another java file is generated under the same name as our jsp file in project folder
 
 ![alt text](images/image-25.png)
 --> HTML in the java file is printed to the screen internally as below: 
 ![alt text](images/image-24.png)
 
-3. How to write the library method, for example new Date() from java.util.Date : Inside the first script tag at the start of jsp file, insert " import= library_name"
+3. How to write the library method, for example new Date() from java.util.Date : Inside the script tag <%@ import= library_name"%> at the start of jsp file
 
 ![alt text](images/image-26.png)
 
+4. Include the response from the other jsp page
+In the body part of jsp, insert:
+<%@ include file="/hello.jsp">
+
+5. Get the parameter in jsp instead of java file
+We can insert inside the script tag: 
+<% String userName = request.getParameter ("para_name");%> 
+Since this will be transformed into java code, we can use that userName variable in later part of jsp file as normal variable defined inside jsp file
+
+6. Different scope. 2 approaches: 
+Inside the script tag, we can write: 
+session.setAttribute("sessionUserName",userName);
+application.setAttribute("applicationUserName",userName);
+pageContext.setAttribute("pageContextUserName",userName);
+
+or 
+we can use just one but pass another parameter
+pageContext.setAttribute("applicationUserName",userName,pageContext.APPLICATION_SCOPE);
+
+7. pageContext.findAttribute("name") : this will find the variable name in different scope and make it a pageContext.
 
 
 
