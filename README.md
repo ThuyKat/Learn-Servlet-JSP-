@@ -265,3 +265,21 @@ We notice that: the path on browser is still /login, which is different to previ
 this has meaning similar to opening a script tag and request.getAttribute("user")
 
 the variable name is automatically the same as the object id
+
+One good thing is that even without setAttribute("user") in controller, userBean tag can set "user" object itself - it checks if the object "user" is available. If the object is not there, it will create a new bean with the scope from the class declared
+
+Whateve the code you write in between open and close jsp:useBean tag will be executed once bean is created
+
+## getProperty tag:
+ 
+ To get the properties of the bean we already defined in previous step
+
+ It takes 2 parameters: 
+ 
+ - name: what is the name that we need to get property from
+
+ - property: the property we are trying to get
+
+ ## setProperty tag: 
+ 
+ imilar to getProperty, but having new parameter: value.
