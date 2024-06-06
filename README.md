@@ -16,7 +16,7 @@
 * 15. [setProperty tag:](#setPropertytag:)
 
 <!-- vscode-markdown-toc-config
-	numbering=true
+	numbering=false
 	autoSave=true
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
