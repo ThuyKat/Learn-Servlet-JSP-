@@ -215,8 +215,11 @@ Other way is that the view can go to controller and controller go directly to us
 ![alt text](images/image-29.png)
 
 pass it to LoginService  and this business service will return a value of true or false( via doPost method). 
+
 3. If true value is returned, loginServlet directs user to success.jsp. Otherwise, the LoginServlet directs user to login.jsp (via doPost method)
+
 4. Now we want to make changes to success.jsp that we want to get current user's name and print out a hello message with that name. 
+
 * We need to get the user's name from UserName and password  that the user provided. 
 * In LoginService, we can get the name of user from the database. In order to do that, we can create a method named " getUserDetail(userId) to get object User using the provided userId. (request.getSession().setAttribute("user",user))
 * Next, we get call the method and get user object in LoginServlet( controller) and pass it to Http session. 
