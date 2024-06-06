@@ -202,8 +202,30 @@ Step 2: in jsp file we have a script tag
 
 ## MVC patterns
 
+![alt text](images/image-28.png)
 
+Assumption: The view not going back to controller but directy to user.
+Other way is that the view can go to controller and controller go directly to user. 
 
+## Login function
+1. ControllerServlet - we call it LoginServlet, it has business service - we call it LoginService, and view - login.jsp and success.jsp
+2. The LoginServlet takes userId and password from login.jsp page 
+(action="/login", method="post" --> LoginServlet),
+
+![alt text](images/image-29.png)
+
+pass it to LoginService  and this business service will return a value of true or false( via doPost method). 
+3. If true value is returned, loginServlet directs user to success.jsp. Otherwise, the LoginServlet directs user to login.jsp (via doPost method)
+4. Now we want to make changes to success.jsp that we want to get current user's name and print out a hello message with that name. 
+* We need to get the user's name from UserName and password  that the user provided. 
+* In LoginService, we can get the name of user from the database. In order to do that, we can create a method named " getUserDetail(userId) to get object User using the provided userId. (request.getSession().setAttribute("user",user))
+* Next, we get call the method and get user object in LoginServlet( controller) and pass it to Http session. 
+     The reason why we choose Http session: when we redirect to another website, we actually create another request. This request is different to the original post request form user. Hence, we will not be able to user the request scope. Meanwhile, application scope can only be used accross multiple users. 
+* In success.jsp, we open script tag to get the user object = session.getAttribute. Note that we can use the first script tag to import User entity to jsp file.
+
+Test result: 
+
+![alt text](images/image-30.png)
 
 
 
