@@ -232,6 +232,29 @@ Test result:
 
 ![alt text](images/image-31.png)
 
+* Not all data can be saved in the session because we call request.getSession in controller. What if we want to save the data we get in the jsp? We need to do the redirect from the server side itself that browser doesnt know that happening to other url or jsp
+
+## Request Dispatcher
+
+1. Instead of redirect to success.jsp, we can dispatch the control right of controller to success.jsp.
+
+2. In order to do this: 
+- In Controller: 
+
+RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+dispatcher.forward(request,response);
+
+Instead of saving user object in session, we can save it in request scope now
+
+- in success.jsp: we can get the user object = request.getAttribute("user");
+
+Test result: 
+
+![alt text](images/image-32.png)
+
+We notice that: the path on browser is still /login, which is different to previously it redirects to /success
+
+
 
 
 
