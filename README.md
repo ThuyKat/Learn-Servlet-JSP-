@@ -281,5 +281,15 @@ Whateve the code you write in between open and close jsp:useBean tag will be exe
  - property: the property we are trying to get
 
  ## setProperty tag: 
- 
- imilar to getProperty, but having new parameter: value.
+
+ Similar to getProperty, but having new parameter: value.
+
+ The meaning of this is get the property of object (name="user") and pass a value to it
+
+ This tag can be used to pass the parameter from the request directly without going through the controller:
+
+ 1. define the bean by useBean tag with three parameters: name = name of object, class=path of the object's class, and method. 
+ 2. inside the useBean tag, use setProperty tag to look up the parameter in the request and pass it to the object's property. setProperty now has three parameter: property= name of the object's property, name = the object's name, param= name of the parameter in login.jsp form
+ 3. outside the useBean tag, use getProperty tag to get the value of the property to the screen with two parameters: property = name of the property and name= the object's name
+
+ ![alt text](images/image-33.png)
