@@ -2,8 +2,8 @@
 *  [Tomcat Configuration in Eclipse](#TomcatConfigurationinEclipse)
 *  [Start the server](#Starttheserver)
 *  [Create simple servlet application](#Createsimpleservletapplication)
-*  [Create a servlet : from servlet class](#Createaservlet:fromservletclass)
-*  [create a servlet: from normal class then config later in web.xml](#createaservlet:fromnormalclassthenconfiglaterinweb.xml)
+*  [Create a servlet from servlet class](#Createaservletfromservletclass)
+*  [create a servlet from normal class then config later in web.xml](#createaservletfromnormalclassthenconfiglaterinweb.xml)
 *  [POST method](#POSTmethod)
 *  [Passing more parameter](#Passingmoreparameter)
 *  [Passing parameter for radio type](#Passingparameterforradiotype)
@@ -50,7 +50,7 @@ Right click on the server > Start
 6. Delete all and leave only index.html as welcome file in web.xml
 7. On SimpleServletProject right click> Run on server > select the configured project > Finish
 ![alt text](images/image-1.png)
-##  4. <a name='Createaservlet:fromservletclass'></a>Create a servlet : from servlet class
+##  4. <a name='Createaservletfromservletclass'></a>Create a servlet  from servlet class
 1. Tomcat is a container, servlet is a class. So Servlet is run on server (VM) that the Tomcat is deployed. It is pretty similar to how you run main method on Java IDE, but in this case it run on different server where Tomcat is deployed. Servlet does not have main method but it has default method that can be executed
 2. On ServletSimpleProject> New>Servlet> enter Java pakage + Class name. Notice the superclass of this servlet class we are creating should always be javax.servlet.http.HttpServlet
 ![alt text](images/image-2.png)
@@ -62,7 +62,7 @@ Right click on the server > Start
 ![alt text](images/image-4.png)
 
 ![alt text](images/image-5.png)
-##  5. <a name='createaservlet:fromnormalclassthenconfiglaterinweb.xml'></a>create a servlet: from normal class then config later in web.xml
+##  5. <a name='createaservletfromnormalclassthenconfiglaterinweb.xml'></a>create a servlet from normal class then config later in web.xml
 1. Create a normal class, howerver it should extend from HttpServlet as its super class
 2. In web.xml, create a new servlet tag, declare servlet-name and servlet-class 
 3. In web.xml, create a new servlet-mapping tag, declare servlet-name and url-pattern
