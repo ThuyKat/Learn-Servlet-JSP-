@@ -258,11 +258,19 @@ We notice that: the path on browser is still /login, which is different to previ
 
 ## useBean tag
 
+In LoginServlet, we have setAttribute for user object: 
+
+![alt text](images/image-35.png)
+
+Now we want to get that attribute and display on the view success.jsp. Instead of opening a script tag, we now use useBean tag: 
+
 ```java
 <jsp:useBean id="user" class=dto.User scope="request"></jsp:useBean>
 
 ```
-this has meaning similar to opening a script tag and request.getAttribute("user")
+this has meaning similar to opening a script tag in success.jsp and request.getAttribute("user")
+
+![alt text](images/image-34.png)
 
 the variable name is automatically the same as the object id
 
@@ -289,7 +297,7 @@ Whateve the code you write in between open and close jsp:useBean tag will be exe
  This tag can be used to pass the parameter from the request directly without going through the controller:
 
  1. define the bean by useBean tag with three parameters: name = name of object, class=path of the object's class, and method. 
- 
+
  2. inside the useBean tag, use setProperty tag to look up the parameter in the request and pass it to the object's property. setProperty now has three parameter: property= name of the object's property, name = the object's name, param= name of the parameter in login.jsp form. If the name in param is the same as the name of the object's property, we can obmiss the param parameter because jstl will look for the param that has the same name as the object's property. 
 
  If all the object's properties have matching names with the parameters' names in login.jsp form, we can use shortcut property ="*" - which mean getting all the values of the user bean's property. 
