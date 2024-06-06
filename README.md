@@ -1,5 +1,27 @@
+<!-- vscode-markdown-toc -->
+* 1. [Tomcat Configuration in Eclipse:](#TomcatConfigurationinEclipse:)
+* 2. [Start the server](#Starttheserver)
+* 3. [Create simple servlet application](#Createsimpleservletapplication)
+* 4. [Create a servlet : from servlet class](#Createaservlet:fromservletclass)
+* 5. [create a servlet: from normal class then config later in web.xml](#createaservlet:fromnormalclassthenconfiglaterinweb.xml)
+* 6. [POST method](#POSTmethod)
+* 7. [Passing more parameter](#Passingmoreparameter)
+* 8. [Passing parameter for radio type](#Passingparameterforradiotype)
+* 9. [JSP](#JSP)
+* 10. [MVC patterns](#MVCpatterns)
+* 11. [Login function](#Loginfunction)
+* 12. [Request Dispatcher](#RequestDispatcher)
+* 13. [useBean tag](#useBeantag)
+* 14. [getProperty tag:](#getPropertytag:)
+* 15. [setProperty tag:](#setPropertytag:)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
 # Learn-Servlet-JSP-
-## Tomcat Configuration in Eclipse: 
+##  1. <a name='TomcatConfigurationinEclipse:'></a>Tomcat Configuration in Eclipse: 
 1. Install the Tomcat Apache server : File > New > Other > Server > Next > Apache > Select the latest version of Tomcat
 2. Wizard will ask to configure the server runtime environment > specify the location of the Tomcat Installationdirectory > Next > Finish
 3. Windown > Show View >Other > Server > we can configure the server using the provided UI : 
@@ -12,12 +34,12 @@
 * MIME mappings- 
 * server launch config - config the VM arguments, classpath, etc.
 * server options- enable/disable features like security, auto reload of modules by default, etc.
-## Start the server
+##  2. <a name='Starttheserver'></a>Start the server
 Right click on the server > Start
 -->  Some issues need to be noted
 1. If testing localhost:8081 ( or any 80 port) it shows 404 error > Right click on Server> Properties> Switch Location
 2. Open the Server UI and check if the correct Server Locations is selected ( the second one - user Tomcat installation)
-## Create simple servlet application
+##  3. <a name='Createsimpleservletapplication'></a>Create simple servlet application
 1. Right click on Server folder> new > other> Web > Dynamic Web Project > Project name: SimpleServletApplication > Generate web.xml deployment descriptor checked > Finish > Yes: this kind of project is associated with the Java EE perspective. Do you want to open this perspective now 
 2. Deployment Descriptor selected > Window > Show View > Navigator : we can see all files in the file system
 3. WEB-INF> Web.xml> Select Source tab : this configs the file that the applicaiton should show as welcome page
@@ -26,7 +48,7 @@ Right click on the server > Start
 6. Delete all and leave only index.html as welcome file in web.xml
 7. On SimpleServletProject right click> Run on server > select the configured project > Finish
 ![alt text](images/image-1.png)
-## Create a servlet : from servlet class
+##  4. <a name='Createaservlet:fromservletclass'></a>Create a servlet : from servlet class
 1. Tomcat is a container, servlet is a class. So Servlet is run on server (VM) that the Tomcat is deployed. It is pretty similar to how you run main method on Java IDE, but in this case it run on different server where Tomcat is deployed. Servlet does not have main method but it has default method that can be executed
 2. On ServletSimpleProject> New>Servlet> enter Java pakage + Class name. Notice the superclass of this servlet class we are creating should always be javax.servlet.http.HttpServlet
 ![alt text](images/image-2.png)
@@ -38,11 +60,11 @@ Right click on the server > Start
 ![alt text](images/image-4.png)
 
 ![alt text](images/image-5.png)
-## create a servlet: from normal class then config later in web.xml
+##  5. <a name='createaservlet:fromnormalclassthenconfiglaterinweb.xml'></a>create a servlet: from normal class then config later in web.xml
 1. Create a normal class, howerver it should extend from HttpServlet as its super class
 2. In web.xml, create a new servlet tag, declare servlet-name and servlet-class 
 3. In web.xml, create a new servlet-mapping tag, declare servlet-name and url-pattern
-## POST method 
+##  6. <a name='POSTmethod'></a>POST method 
 1. in doGet method, we observe the parameter request of HttpServletRequest type. In browser, lets say we pass a parameter such as ?userName=Thuy, the browser stays the same because currently all values we pass to the parameter request, we print out the same message
 
 ![alt text](images/image-6.png)
@@ -73,7 +95,7 @@ Right click on the server > Start
 
 ![alt text](images/image-13.png)
 
-## Passing more parameter
+##  7. <a name='Passingmoreparameter'></a>Passing more parameter
 
 1. HTML file: we add extra variable which is name apart from username.
 
@@ -87,7 +109,7 @@ Right click on the server > Start
 
 ![alt text](images/image-16.png)
 
-## Passing parameter for radio type
+##  8. <a name='Passingparameterforradiotype'></a>Passing parameter for radio type
 1. HTML file:
 
 ![alt text](images/image.png)
@@ -138,7 +160,7 @@ this. getServletConfig().getInitParameter("parameter_name")
 # Application 
 # pageContext
 
-## JSP
+##  9. <a name='JSP'></a>JSP
 1. Writing method <%! java_method %> ( definition tag )and writing variables and simple fomular with script tag <% variable/fomular %>. 
 2. How to write method within script tag : we write separate script-tag for each { and } and we can include html code in between
 
@@ -200,14 +222,14 @@ Step 2: in jsp file we have a script tag
 
 10. ServletConfig vs ServletConfig: ServletConfig is something Servlet passign to us on the creation of the servlet object. It checks the parameter on the web server, parameter we have set there, bundles them into an object called ServletConfig and passes to us in our methods. ServletContext is an application context( scope object- like request and session) applicable across the the application ( like request is applicaiton for particular request and session is available for a user session). ServletContext is available across the application
 
-## MVC patterns
+##  10. <a name='MVCpatterns'></a>MVC patterns
 
 ![alt text](images/image-28.png)
 
 Assumption: The view not going back to controller but directy to user.
 Other way is that the view can go to controller and controller go directly to user. 
 
-## Login function
+##  11. <a name='Loginfunction'></a>Login function
 1. ControllerServlet - we call it LoginServlet, it has business service - we call it LoginService, and view - login.jsp and success.jsp
 2. The LoginServlet takes userId and password from login.jsp page 
 (action="/login", method="post" --> LoginServlet),
@@ -234,7 +256,7 @@ Test result:
 
 * Not all data can be saved in the session because we call request.getSession in controller. What if we want to save the data we get in the jsp? We need to do the redirect from the server side itself that browser doesnt know that happening to other url or jsp
 
-## Request Dispatcher
+##  12. <a name='RequestDispatcher'></a>Request Dispatcher
 
 1. Instead of redirect to success.jsp, we can dispatch the control right of controller to success.jsp.
 
@@ -256,7 +278,7 @@ We notice that: the path on browser is still /login, which is different to previ
 
 # JSTL
 
-## useBean tag
+##  13. <a name='useBeantag'></a>useBean tag
 
 In LoginServlet, we have setAttribute for user object: 
 
@@ -278,7 +300,7 @@ One good thing is that even without setAttribute("user") in controller, userBean
 
 Whateve the code you write in between open and close jsp:useBean tag will be executed once bean is created
 
-## getProperty tag:
+##  14. <a name='getPropertytag:'></a>getProperty tag:
  
  To get the properties of the bean we already defined in previous step
 
@@ -288,7 +310,7 @@ Whateve the code you write in between open and close jsp:useBean tag will be exe
 
  - property: the property we are trying to get
 
- ## setProperty tag: 
+##  15. <a name='setPropertytag:'></a>setProperty tag:: 
 
  Similar to getProperty, but having new parameter: value.
 
