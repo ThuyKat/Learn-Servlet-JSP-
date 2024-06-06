@@ -1,5 +1,5 @@
 <!-- vscode-markdown-toc -->
-*  [Tomcat Configuration in Eclipse](#TomcatConfigurationinEclipse:)
+*  [Tomcat Configuration in Eclipse](#TomcatConfigurationinEclipse)
 *  [Start the server](#Starttheserver)
 *  [Create simple servlet application](#Createsimpleservletapplication)
 *  [Create a servlet : from servlet class](#Createaservlet:fromservletclass)
@@ -12,8 +12,8 @@
 *  [Login function](#Loginfunction)
 *  [Request Dispatcher](#RequestDispatcher)
 *  [useBean tag](#useBeantag)
-*  [getProperty tag](#getPropertytag:)
-*  [setProperty tag](#setPropertytag:)
+*  [getProperty tag](#getPropertytag)
+*  [setProperty tag](#setPropertytag)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -23,7 +23,7 @@
 
 # Learn-Servlet-JSP-
 
-## 1. <a name='TomcatConfigurationinEclipse:'></a>Tomcat Configuration in Eclipse
+## 1. <a name='TomcatConfigurationinEclipse'></a>Tomcat Configuration in Eclipse
 1. Install the Tomcat Apache server : File > New > Other > Server > Next > Apache > Select the latest version of Tomcat
 2. Wizard will ask to configure the server runtime environment > specify the location of the Tomcat Installationdirectory > Next > Finish
 3. Windown > Show View >Other > Server > we can configure the server using the provided UI : 
@@ -302,7 +302,7 @@ One good thing is that even without setAttribute("user") in controller, userBean
 
 Whateve the code you write in between open and close jsp:useBean tag will be executed once bean is created
 
-##  14. <a name='getPropertytag:'></a>getProperty tag
+##  14. <a name='getPropertytag'></a>getProperty tag
  
  To get the properties of the bean we already defined in previous step
 
@@ -312,7 +312,7 @@ Whateve the code you write in between open and close jsp:useBean tag will be exe
 
  - property: the property we are trying to get
 
-##  15. <a name='setPropertytag:'></a>setProperty tag
+##  15. <a name='setPropertytag'></a>setProperty tag
 
  Similar to getProperty, but having new parameter: value.
 
