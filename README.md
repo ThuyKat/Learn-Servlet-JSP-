@@ -15,11 +15,11 @@
 * 14. [getProperty tag:](#getPropertytag:)
 * 15. [setProperty tag:](#setPropertytag:)
 
-<!-- vscode-markdown-toc-config
+vscode-markdown-toc-config
 	numbering=false
 	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+	/vscode-markdown-toc-config
+/vscode-markdown-toc
 # Learn-Servlet-JSP-
 ##  1. <a name='TomcatConfigurationinEclipse:'></a>Tomcat Configuration in Eclipse: 
 1. Install the Tomcat Apache server : File > New > Other > Server > Next > Apache > Select the latest version of Tomcat
