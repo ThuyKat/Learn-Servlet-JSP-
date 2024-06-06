@@ -1,5 +1,5 @@
 <!-- vscode-markdown-toc -->
-*  [Tomcat Configuration in Eclipse:](#TomcatConfigurationinEclipse:)
+*  [Tomcat Configuration in Eclipse](#TomcatConfigurationinEclipse:)
 *  [Start the server](#Starttheserver)
 *  [Create simple servlet application](#Createsimpleservletapplication)
 *  [Create a servlet : from servlet class](#Createaservlet:fromservletclass)
@@ -12,8 +12,8 @@
 *  [Login function](#Loginfunction)
 *  [Request Dispatcher](#RequestDispatcher)
 *  [useBean tag](#useBeantag)
-*  [getProperty tag:](#getPropertytag:)
-*  [setProperty tag:](#setPropertytag:)
+*  [getProperty tag](#getPropertytag:)
+*  [setProperty tag](#setPropertytag:)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
