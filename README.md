@@ -254,7 +254,14 @@ Test result:
 
 We notice that: the path on browser is still /login, which is different to previously it redirects to /success
 
+# JSTL
 
+## useBean tag
 
+```java
+<jsp:useBean id="user" class=dto.User scope="request"></jsp:useBean>
 
+```
+this has meaning similar to opening a script tag and request.getAttribute("user")
 
+the variable name is automatically the same as the object id
