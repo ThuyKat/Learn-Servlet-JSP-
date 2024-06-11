@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>Insert title here</title> -->
+</head>
+<body>
+<!-- value of "name" field is the name of parameter we put in .getParameter() method -->
+<form method="post" action="XmlServletpath">
+	User name:<input name="userName"/> <!-- request.getParameter("userName") -->
+	Name:    <input name="name"/> <!-- request.getParameter("name") -->
+	<br>
+	Occupation:<!-- request.getParameter("occupation") -->
+	<input type="radio" name="occupation" value="Builder"/>Builder
+	<input type="radio" name="occupation" value="Structural Enginner"/>Structural Engineer
+	<input type="submit"/>
+	
+
+</form>
+</body>
+</html>

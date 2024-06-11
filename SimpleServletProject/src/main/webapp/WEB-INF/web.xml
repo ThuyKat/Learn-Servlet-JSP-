@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>SimpleServletProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+<!--   <servlet>
+    <description>A simple servlet</description>
+    <display-name>SimpleServlet</display-name>
+    <servlet-name>SimpleServlet</servlet-name>
+    <servlet-class>org.demo.SimpleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SimpleServlet</servlet-name>
+    <url-pattern>/SimpleServlet</url-pattern>
+  </servlet-mapping> -->
+  <servlet>
+  <servlet-name>InitJSP</servlet-name>
+ <!--  not specifying servlet class because we are going to do it in jsp -->
+ <jsp-file>/initpage.jsp</jsp-file>
+ <!-- this will map the servlet-name with the generated servlet in jsp file -->
+ <init-param>
+ <param-name>defaultUser</param-name>
+ <param-value>Default User Name</param-value>
+ </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>InitJSP</servlet-name>
+  <url-pattern>/initpage.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>xmlServlet</servlet-name>
+  <servlet-class>org.demo.XmlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>xmlServlet</servlet-name>
+    <url-pattern>/xmlServletpath</url-pattern>
+  </servlet-mapping>
+</web-app>
