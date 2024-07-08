@@ -22,7 +22,88 @@
 <!-- /vscode-markdown-toc -->
 
 # Learn-Servlet-JSP-
+JSP : Java server pages - means Java inside HTML
+Servlet: HTML inside Java code
 
+Any class we have in Java, we can consider it as a Servlet. Tomcat, in this context, is a servlet container. It will identify which servlet ( method/java class) that user's request has to route to.
+
+HTTPServlet uses web.xml to maintain a map of which servlet(java code) to execute when user hit a particular path. Web.xml is also used in Spring to configure the web application and set up the Spring DispatcherServlet(mapping to handle requests). In a morden version of Spring, web.xml can be replaced with Java config classes. 
+
+**HttpServlet vs Spring MVC in handling requests and responses**
+1. HTTPSERVLET: 
+- When user hit a specific url path, e.g.,/hello, the servlet container (e.g., Tomcat, Jetty) looks up the servlet class using web.xml. It finds the '<servlet-mapping>' entry with '<url-pattern>' /hello. It then uses the <servlet-name> from the <servlet-mapping> to look up the corresponding <servlet-class > in the <servlet> configuration. The servlet container then initiates an object of HttpServlet class named " HelloServlet", call its service() method to handle the HTTP request.
+- Once the servlet is instantiated, the servlet container invokes methods like init(), service() and eventually doGet(), doPost() based on the HTTP request method 
+- Finally, the servlet writes the response content using methods like getWritter() or getOutputStream() from the HttpServletResponse object, and the servlet container sends this response back to client's screen. 
+- If we want to direct a request to a JSP pages instead of writing directly to the response writer, we call getRequestDispatcher() method of HttpServletResponse
+```java
+public class HelloServlet extends HttpServlet{
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOE Exception{
+    //Process request logic here
+    //set attributes if needed
+    req.setAttributes("message","Hello from Servlet!");
+    //Forward to JSP
+    req.getRequestDispatcher("/WEB-INF/views/hello.jsp").forward(req,resp);
+  }
+}
+```
+2. SPRING MVC
+- When a user hits the /hello url, the request first goes to the DispatcherServlet which is configured in web.xml  or through 'WebApplicationInitializer'. The DispatcherServlet scans and determines which controller should handle the request via method annotated with @RequestMapping
+- This is the version of web.xml that direct responses to Dispatcher-servlet.xml. Note that in this case applicationContext.xml which handles bean definitions, service layers and data sources can be included in Dispatcher-servlet.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?> 
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0"> 
+<!--Register the Spring DispatcherServlet -->
+<servlet> 
+<servlet-name>dispatcher</servlet-name>
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+<!-- [OPTIONAL] if applicationContext.xml is separated from dispatcher-servlet.xml -->
+<context-param>
+  <param-name> contextConfigLocation</param-name>
+  <param-value>/WEB-INF/applicationContext.xml</param-value>
+</context-param>
+<!--Specify the context configuration location-->
+<init-param> 
+<param-name>contextConfigLocation</param-name>
+<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+  </init-param> 
+  <load-on-startup>1</load-on-startup> 
+  </servlet> 
+  <!-- Map the DispatcherServlet to handle all requests -->
+  <servlet-mapping> 
+  <servlet-name>dispatcher</servlet-name> 
+  <url-pattern>/</url-pattern> 
+  </servlet-mapping> 
+  </web-app>
+```
+- This is the version of web.xml with WebConfig as the configuration class. We use web.xml just to load 'AnnotationCOnfigWebApplicationContext' and registers 'WebConfig'class, which programmatically defines all beeans and configurations. We dont need a separate 'applicationContext.xml' because all configurations are done programmatically in the 'WebConfig'class.
+```xml
+<?xml version="1.0" encoding="UTF-8"?> 
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0"> 
+<!-- Register the Spring DispatcherServlet --> 
+<servlet> 
+<servlet-name>dispatcher</servlet-name> 
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+<!-- Specify the context configuration location -->
+ <init-param>
+  <param-name>contextClass</param-name>
+   <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+</init-param> 
+<init-param> 
+    <param-name>contextConfigLocation</param-name>
+     <param-value>com.example.config.WebConfig</param-value> 
+</init-param> 
+
+     <load-on-startup>1</load-on-startup> 
+     </servlet> 
+     <!-- Map the DispatcherServlet to handle all requests --> <servlet-mapping>
+      <servlet-name>dispatcher</servlet-name> 
+      <url-pattern>/</url-pattern> 
+      </servlet-mapping> 
+      </web-app>
+```
+- In later version, Spring can discard web.xml totally by using WebAppInitializer class. This class registers the dispatcher using container.addServlet and, initialize an instance of applicationContext to directly register WebConfig, instead of <servlet-mapping> to specify URL, it uses dispatcher.addMapping("/").
+- Once the correct controller is identified, Spring invokes the corresponding method in the controller, potentially interact with services or other components. 
+- If the controller returns a view name, Spring MVC consults the ViewResolver configured in the 'WebConfig' or  dispatcher-servlet.xml to resolve this view name to actual view ( JSP file). The ViewResolver typically appends a prefix (like /WEB-INF/views) and suffix like .jsp to the logical view name to determine the actual JSP file path (/WEB-INF/views/helloPage.jsp)
 ## 1. <a name='TomcatConfigurationinEclipse'></a>Tomcat Configuration in Eclipse
 1. Install the Tomcat Apache server : File > New > Other > Server > Next > Apache > Select the latest version of Tomcat
 2. Wizard will ask to configure the server runtime environment > specify the location of the Tomcat Installationdirectory > Next > Finish
