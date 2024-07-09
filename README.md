@@ -75,7 +75,7 @@ public class HelloServlet extends HttpServlet{
   </servlet-mapping> 
   </web-app>
 ```
-- This is the version of web.xml with WebConfig as the configuration class. We use web.xml just to load 'AnnotationCOnfigWebApplicationContext' and registers 'WebConfig'class, which programmatically defines all beeans and configurations. We dont need a separate 'applicationContext.xml' because all configurations are done programmatically in the 'WebConfig'class.
+- This is the version of web.xml with WebConfig as the configuration class. We use web.xml just to load 'AnnotationCOnfigWebApplicationContext' and registers 'WebConfig'class, which programmatically defines all beans and configurations. We dont need a separate 'applicationContext.xml' because all configurations are done programmatically in the 'WebConfig'class.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0"> 
