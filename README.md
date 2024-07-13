@@ -31,7 +31,7 @@ HTTPServlet uses web.xml to maintain a map of which servlet(java code) to execut
 
 **HttpServlet vs Spring MVC in handling requests and responses**
 1. HTTPSERVLET: 
-- When user hit a specific url path, e.g.,/hello, the servlet container (e.g., Tomcat, Jetty) looks up the servlet class using web.xml. It finds the '<servlet-mapping>' entry with '<url-pattern>' /hello. It then uses the <servlet-name> from the <servlet-mapping> to look up the corresponding <servlet-class > in the <servlet> configuration. The servlet container then initiates an object of HttpServlet class named " HelloServlet", call its service() method to handle the HTTP request.
+- When user hit a specific url path, e.g.,/hello, the servlet container (e.g., Tomcat, Jetty) looks up the servlet class using web.xml. It finds the < servlet-mapping > entry with < url-pattern > /hello. It then uses the < servlet-name > from the < servlet-mapping > to look up the corresponding < servlet-class > in the < servlet > configuration. The servlet container then initiates an object of HttpServlet class named " HelloServlet", call its service() method to handle the HTTP request.
 - Once the servlet is instantiated, the servlet container invokes methods like init(), service() and eventually doGet(), doPost() based on the HTTP request method 
 - Finally, the servlet writes the response content using methods like getWritter() or getOutputStream() from the HttpServletResponse object, and the servlet container sends this response back to client's screen. 
 - If we want to direct a request to a JSP pages instead of writing directly to the response writer, we call getRequestDispatcher() method of HttpServletResponse
